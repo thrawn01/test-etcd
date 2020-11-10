@@ -1,7 +1,11 @@
-.PHONY: docker
-.DEFAULT_GOAL := docker
+.PHONY: v3.4.13 master all
+.DEFAULT_GOAL := all
 
-docker:
-	docker build .
-	docker build Dockerfile-clientv3 .
+all: v3.4.13 master
+
+master:
+	-docker build .
+
+v3.4.13:
+	-docker build -f Dockerfile-clientv3 .
 
